@@ -32,6 +32,11 @@ set(BABEL_PATCH_VER 90)
 # This should be phased out in preference for just using the target name
 set(BABEL_LIBRARY openbabel)
 
+# Add MSVC support headers when using MSVC compilers (C99 support)
+if(MSVC)
+  include_directories("msvc-support")
+endif()
+
 # This would be better handled with external projects...
 if(EMBED_OPENBABEL)
   set(BABEL_VERSION  "${BABEL_MAJ_VER}.${BABEL_MIN_VER}.${BABEL_PATCH_VER}" PARENT_SCOPE)
